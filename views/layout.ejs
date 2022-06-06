@@ -4,6 +4,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
+    <link rel="stylesheet" href="/css/layout.css">
+    <%- style %> <!--take the style from body and apply over all the layout-->
 </head>
 <body>
     <%- include('_header'); %>
@@ -11,6 +13,8 @@
     <%- body %> <!-- this is the variable part-->
 
     <%- include('_footer'); %>
+
+    <%- script %><!--take the script from body and apply over all the layout-->
     
 </body>
 </html>
