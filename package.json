@@ -1,0 +1,18 @@
+{
+  "name": "socipop",
+  "version": "1.0.0",
+  "description": "social media web app",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -L index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "social"
+  ],
+  "author": "Sakil Mostak",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
