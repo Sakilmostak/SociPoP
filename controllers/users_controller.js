@@ -10,3 +10,17 @@ module.exports.profile = function(req,res){
 module.exports.edit = function(req,res){
     res.end('<h1>You can edit your profile here</h1>');
 }
+
+//adding action when directed to signUp controller
+module.exports.signUp= function(req,res){
+    return res.render('user_sign_up',{
+        title: "SociPoP | Sign Up"
+    })
+}
+
+//adding action when directed to singIn controller
+module.exports.signIn= function(req,res){
+    return res.render('user_sign_in',{
+        title: "SociPoP | Sign In"
+    })
+}
