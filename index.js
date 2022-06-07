@@ -4,7 +4,14 @@ const app = express();
 const port= 2500;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
+const cookieParser = require('cookie-parser');
 
+// middleware for decoding the recieved data
+app.use(express.urlencoded());
+// middleware for decoding the cookie
+app.use(cookieParser());
+
+// adding the static files for styling and scripting the pages
 app.use(express.static('./assets'));
 
 // adding layouts in ejs
