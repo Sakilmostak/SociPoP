@@ -24,3 +24,13 @@ module.exports.signIn= function(req,res){
         title: "SociPoP | Sign In"
     })
 }
+
+//get the signup data
+module.exports.create= function(req,res){
+    // do some
+}
+
+//adding action when user sign-in 
+module.exports.createSession = function(req, res){
+    //do some
+}
