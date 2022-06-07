@@ -11,5 +11,7 @@ router.get('/edit',usersController.edit);
 router.get('/sign-up',usersController.signUp);
 router.get('/sign-in',usersController.signIn);
 
+router.post('/create', usersController.create);
+
 // making it public
 module.exports = router;
