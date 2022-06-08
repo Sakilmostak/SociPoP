@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
+const MongoStore = require('connect-mongo');
 
 
 // middleware for decoding the recieved data
@@ -29,6 +30,7 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 //middleware for initiating session(stored in cookies) when authenticated
+//Mongostore is used to store the session in the db
 app.use(session(
     {
         name: 'SociPoP',
@@ -38,7 +40,10 @@ app.use(session(
         resave: false,
         cookie: {
             maxAge: (1000*60*100) //session duration in milliseconds
-        }
+        },
+        store: MongoStore.create({
+            mongoUrl: 'mongodb://localhost/socipop_development'
+        })
     }
 ));
 
