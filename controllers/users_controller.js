@@ -16,6 +16,10 @@ module.exports.edit = function(req,res){
 
 //adding action when directed to signUp controller
 module.exports.signUp= function(req,res){
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
+
     return res.render('user_sign_up',{
         title: "SociPoP | Sign Up"
     })
@@ -23,6 +27,10 @@ module.exports.signUp= function(req,res){
 
 //adding action when directed to singIn controller
 module.exports.signIn= function(req,res){
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile'); 
+    }
+
     return res.render('user_sign_in',{
         title: "SociPoP | Sign In"
     })
