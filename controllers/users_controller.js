@@ -40,7 +40,6 @@ module.exports.signUp= function(req,res){
 
 //adding action when directed to singIn controller
 module.exports.signIn= function(req,res){
-    console.log(req.cookies);
     return res.render('user_sign_in',{
         title: "SociPoP | Sign In"
     })
@@ -120,7 +119,9 @@ module.exports.createSession = function(req, res){
 module.exports.signOut= function(req,res){
     //res.cookie()
 
+    // clearing the cookies using key
     res.clearCookie("user_id");
 
+    //redirecting the page
     return res.redirect('/users/sign-in');
 }
