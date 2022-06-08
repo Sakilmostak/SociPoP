@@ -46,6 +46,9 @@ app.use(session(
 app.use(passport.initialize());
 app.use(passport.session());
 
+//middleware to check each response whether in session
+app.use(passport.setAuthenticatedUser);
+
 //use express router
 app.use('/',require('./routes'));
 
