@@ -5,6 +5,10 @@ const port= 2500;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const passport = require('passport');
+const passportLocal = require('./config/passport-local-strategy');
+
 
 // middleware for decoding the recieved data
 app.use(express.urlencoded());
@@ -20,13 +24,30 @@ app.use(expressLayouts);
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
 
-//use express router
-app.use('/',require('./routes'));
-
 //setting up view engine
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
+//middleware for initiating session(stored in cookies) when authenticated
+app.use(session(
+    {
+        name: 'SociPoP',
+        // TODO change the secret before deployment in production mode
+        secret: 'something something',
+        saveUninitialized: false,
+        resave: false,
+        cookie: {
+            maxAge: (1000*60*100) //session duration in milliseconds
+        }
+    }
+));
+
+//middleware for authenticating user using passport js
+app.use(passport.initialize());
+app.use(passport.session());
+
+//use express router
+app.use('/',require('./routes'));
 
 //firing up the server
 app.listen(port, function(err){
