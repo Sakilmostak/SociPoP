@@ -71,3 +71,16 @@ module.exports.create= function(req,res){
 module.exports.createSession = function(req, res){
     return res.redirect('/');
 }
+
+//adding action when sign-out is called
+module.exports.destroySession = function(req,res){
+    //signing out from the session using passport js
+    req.logout(function(err){
+        if(err){
+            console.log(err);
+            return res.redirect('back');
+        }
+    });
+
+    return res.redirect('/');
+}
