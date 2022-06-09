@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+//creating db schema with mongoose
 const postSchema = new mongoose.Schema(
     {
         content: {
@@ -13,6 +14,7 @@ const postSchema = new mongoose.Schema(
         },
         // include the array of ids of all comments in this posh schemna itself
         comments: {
+            //[type] means its array of given type
             type: [mongoose.Schema.Types.ObjectId],
             ref: 'Comment'
         }
@@ -22,5 +24,6 @@ const postSchema = new mongoose.Schema(
     }
 );
 
+//creating the collection for post in mongodb with given schema
 const Post = mongoose.model('Post', postSchema);
 module.exports = Post;
