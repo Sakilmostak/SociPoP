@@ -1,0 +1,30 @@
+header {
+    background-image: linear-gradient(rgb(255, 133, 241), rgb(132, 118, 255));
+    display:flex;
+    justify-content: space-between;
+
+    h1 {
+        color: white;
+        margin: 2% 4%;
+    }
+
+    ul{
+        display:flex;
+        margin: 2% 4%;
+        li {
+            list-style: none;
+            width: 100px;
+            text-align: center;
+            a {
+                text-decoration: none;
+                color: white;
+                &:hover {
+                    color: rgb(0, 0, 0);
+                    text-shadow: 3px 3px 5px white;
+                }
+            }
+        }
+    }
+
+    
+}
