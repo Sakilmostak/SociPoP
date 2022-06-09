@@ -13,7 +13,7 @@ const postSchema = new mongoose.Schema(
         },
         // include the array of ids of all comments in this posh schemna itself
         comments: {
-            type: mongoose.Schema.Types.ObjectId,
+            type: [mongoose.Schema.Types.ObjectId],
             ref: 'Comment'
         }
     },
