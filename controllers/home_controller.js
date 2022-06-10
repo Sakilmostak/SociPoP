@@ -1,4 +1,5 @@
 const Post = require('../models/post');
+const User = require('../models/users');
 
 // template
 // module.exports.actionName= function(req, res){ do something };
@@ -32,10 +33,16 @@ module.exports.home= function(req, res){
         if(err){
             console.log('error in finding the posts')
         }
-        return res.render('home',  {
-            title: "SociPoP : Home",
-            posts: posts
-        });
+
+        User.find({}, function(err, users){
+            return res.render('home',  {
+                title: "SociPoP : Home",
+                posts: posts,
+                all_users: users
+            });
+        })
+
+        
     });
     
 }

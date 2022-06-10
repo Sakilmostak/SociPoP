@@ -4,9 +4,13 @@ const User = require("../models/users");
 //adding action when directed to profile controller
 // profile is present in views
 module.exports.profile = function(req,res){
-    return res.render('user_profile',{
-        title: "profile"
+    User.findById(req.params.id, function(err, user){
+        return res.render('user_profile',{
+            title: "profile",
+            profile_user: user
+        });
     });
+    
 }
 
 //adding action when directed to edit controller
