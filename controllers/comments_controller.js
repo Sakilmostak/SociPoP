@@ -12,7 +12,7 @@ module.exports.create = function(req,res){
             //saving the comment in the db
             Comment.create(
                 {
-                    comment: req.body.content,
+                    content: req.body.content,
                     post: req.body.post,
                     user: req.user._id
                 },

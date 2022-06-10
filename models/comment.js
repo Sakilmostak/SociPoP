@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 // creating schema for db using mongoose
 const commentSchema = new mongoose.Schema(
     {
-        comment: {
+        content: {
             type: String,
             required: true
         },

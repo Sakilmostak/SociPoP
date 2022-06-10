@@ -20,7 +20,15 @@ module.exports.home= function(req, res){
 
     //finding all the post from db and populating the whole user to send to the views
     // populating means not just the id but the whole user data will be saved
-    Post.find({}).populate('user').exec(function(err,posts){
+    Post.find({})
+    .populate('user')
+    .populate({
+        path: 'comments',
+        populate: {
+            path: 'user'
+        }
+    })
+    .exec(function(err,posts){
         if(err){
             console.log('error in finding the posts')
         }

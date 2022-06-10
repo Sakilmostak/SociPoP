@@ -13,11 +13,11 @@ const postSchema = new mongoose.Schema(
             ref: 'User'
         },
         // include the array of ids of all comments in this posh schemna itself
-        comments: {
+        comments: [{
             //[type] means its array of given type
-            type: [mongoose.Schema.Types.ObjectId],
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'Comment'
-        }
+        }]
     },
     {
         timestamps: true
