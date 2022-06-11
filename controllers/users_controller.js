@@ -3,25 +3,37 @@ const User = require("../models/users");
 
 //adding action when directed to profile controller
 // profile is present in views
-module.exports.profile = function(req,res){
-    User.findById(req.params.id, function(err, user){
+module.exports.profile = async function(req,res){
+    try{
+        let user = await User.findById(req.params.id);
+
         return res.render('user_profile',{
             title: "profile",
             profile_user: user
         });
-    });
+    }
+    catch(err){
+        console.log('Error',err);
+    }
+    
     
 }
 
-module.exports.update = function(req, res){
-    if(req.user.id == req.params.id){
-        User.findByIdAndUpdate(req.params.id, req.body, function(err, user){
+module.exports.update = async function(req, res){
+    try{
+        if(req.user.id == req.params.id){
+            await User.findByIdAndUpdate(req.params.id, req.body);
+    
             return res.redirect('back');
-        });
+        }
+        else{
+            return res.status(401).send('Unauthorized');
+        }
     }
-    else{
-        return res.status(401).send('Unauthorized');
+    catch(err){
+        console.log('Error',err);
     }
+    
 }
 
 //adding action when directed to edit controller
@@ -52,34 +64,28 @@ module.exports.signIn= function(req,res){
 }
 
 //get the signup data
-module.exports.create= function(req,res){
-    if(req.body.password!= req.body.confirm_password){
-        // return to the same page
-        return res.redirect('back');
-    }
-
-    User.findOne(
-        {email: req.body.email},
-        function(err, user){
-            if(err){
-                console.log('error in finding user in signing up');
-                return;
-            }
-
-            if(!user){
-                User.create(req.body, function(err, user){
-                    if(err){
-                        console.log('error in creating user while signing up');
-                    }
-
-                    return res.redirect('/users/sign-in');
-                });
-            }
-            else{
-                return res.redirect('back');
-            }
+module.exports.create= async function(req,res){
+    try{
+        if(req.body.password!= req.body.confirm_password){
+            // return to the same page
+            return res.redirect('back');
         }
-    );
+    
+        let user = await User.findOne({email: req.body.email});
+    
+        if(!user){
+            await User.create(req.body);
+    
+            return res.redirect('/users/sign-in');
+        }
+        else{
+            return res.redirect('back');
+        }
+    }
+    catch(err){
+        console.log('Error',err);
+    }
+    
 }
 
 //adding action when user sign-in 
@@ -88,14 +94,15 @@ module.exports.createSession = function(req, res){
 }
 
 //adding action when sign-out is called
-module.exports.destroySession = function(req,res){
-    //signing out from the session using passport js
-    req.logout(function(err){
-        if(err){
-            console.log(err);
-            return res.redirect('back');
-        }
-    });
+module.exports.destroySession = async function(req,res){
+    try{
+        //signing out from the session using passport js
+        await req.logout();
 
-    return res.redirect('/');
+        return res.redirect('/');
+    }
+    catch(err){
+        console.log('Error',err);
+    }
+    
 }
