@@ -90,19 +90,21 @@ module.exports.create= async function(req,res){
 
 //adding action when user sign-in 
 module.exports.createSession = function(req, res){
+    req.flash('success', 'Logged in Successfully');
     return res.redirect('/');
 }
 
 //adding action when sign-out is called
-module.exports.destroySession = async function(req,res){
-    try{
-        //signing out from the session using passport js
-        await req.logout();
+module.exports.destroySession = function(req,res){
+    //signing out from the session using passport js
+    req.logout(function(err){
+        if(err){
+            console.log(err);
+        }
+
+        req.flash('success', 'You have logged out!');
 
         return res.redirect('/');
-    }
-    catch(err){
-        console.log('Error',err);
-    }
-    
+
+    });
 }
