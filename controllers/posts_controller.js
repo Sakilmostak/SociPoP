@@ -1,16 +1,31 @@
 const Post= require('../models/post');
 const Comment = require('../models/comment');
+const User = require('../models/users')
 
 //adding action when directed to this controller
 module.exports.create= async function(req, res){
     try{
         //fetching the post from the form and saving it in db
-        await Post.create(
+        let post = await Post.create(
             {
             content: req.body.content,
             user: req.user._id
             },
-        );
+        )
+
+        let user = await User.findById(post.user);
+
+        // checks if its an ajax request
+        if(req.xhr){
+            return res.status(200).json({
+                data: {
+                    post: post,
+                    username: user.name,
+                    flashmsg: "Post made!"
+                },
+                message: "Post created!"
+            })
+        }
 
         // to flash this message onto the browser
         req.flash('success', 'Post made!');
@@ -38,6 +53,16 @@ module.exports.destroy = async function(req,res){
             post.remove();
 
             await Comment.deleteMany({post: req.params.id});
+
+            if(req.xhr){
+                return res.status(200).json({
+                    data: {
+                        post_id: req.params.id,
+                        flashmsg: "Post and associated comments deleted!"
+                    },
+                    message: "Post deleted"
+                })
+            }
 
             // to flash this message onto the browser
             req.flash('success', 'Post and associated comments deleted!');

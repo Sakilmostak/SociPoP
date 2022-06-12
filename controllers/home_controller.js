@@ -22,7 +22,9 @@ module.exports.home= async function(req, res){
     try{
         //finding all the post from db and populating the whole user to send to the views
         // populating means not just the id but the whole user data will be saved
+        // sort() is used to sort the data with custom sortinng parameter
         let posts = await Post.find({})
+        .sort('-createdAt')
         .populate('user')
         .populate({
             path: 'comments',
