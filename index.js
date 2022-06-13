@@ -32,6 +32,10 @@ app.use(cookieParser());
 // adding the static files for styling and scripting the pages
 app.use(express.static('./assets'));
 
+//makes the upload path available to the browser
+app.use('/upload',express.static(__dirname+'/upload'));
+
+
 // adding layouts in ejs
 app.use(expressLayouts);
 // extract style and scripts from subpages into the layout
