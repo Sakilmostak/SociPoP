@@ -1,5 +1,6 @@
 const Comment= require('../models/comment');
 const Post = require('../models/post');
+const commentsMailer = require('../mailers/comments_mailer');
 
 module.exports.create = async function(req,res){
     try{
@@ -20,6 +21,16 @@ module.exports.create = async function(req,res){
             // adding the comment to the array of comment in post for easy access
             post.comments.push(comment);
             post.save();
+
+            comment.populate('user', 'name email', function(err, comment){
+                if(err){
+                    console.log('error in populating comment',err);
+                    return;
+                }
+
+                commentsMailer.newComment(comment);
+            });
+            
 
             return res.redirect('/');
         }
