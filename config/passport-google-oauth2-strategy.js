@@ -33,9 +33,9 @@ passport.use(new googleStrategy(
                 }, function(err, user){
                     if(err){
                         console.log('error in creating user in google strategy-passport',err);
-                        
-                        return done(null, user);
                     }
+
+                    return done(null, user);
                 });
             }
         })
