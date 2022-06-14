@@ -22,5 +22,9 @@ router.post('/create-session', passport.authenticate(
     usersController.createSession
 );
 
+//setting up route for google authentication using passport js
+router.get('/auth/google', passport.authenticate('google', {scope: ['profile','email']}));
+router.get('/auth/google/callback', passport.authenticate('google', {failureRedirect: 'users/sign-in'}), usersController.createSession);
+
 // making it public
 module.exports = router;
