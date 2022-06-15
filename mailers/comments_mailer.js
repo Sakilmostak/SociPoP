@@ -17,7 +17,7 @@ exports.newComment = (comment)=> {
             return;
         }
 
-        console.log('Mail sent',info);
+        //console.log('Mail sent',info);
         return;
     });
 }

@@ -1,6 +1,8 @@
 const Comment= require('../models/comment');
 const Post = require('../models/post');
 const commentsMailer = require('../mailers/comments_mailer');
+const commentEmailWorker = require('../workers/comment_email_worker');
+const queue = require('../config/kue');
 
 module.exports.create = async function(req,res){
     try{
@@ -29,7 +31,18 @@ module.exports.create = async function(req,res){
                 }
 
                 //sending confirmation mail to user who have posted
-                commentsMailer.newComment(comment);
+                //commentsMailer.newComment(comment);
+
+                //adding job to the queue created with name 'emails' and executing the procss associated with it
+                // the process for the job is available in workers/new_comment_worker
+                let job = queue.create('emails', comment).save(function(err){
+                    if(err){
+                        console.log('error in creating a queue',err);
+                        return;
+                    }
+
+                    console.log('job enqueued',job.id);
+                })
             });
             
 
