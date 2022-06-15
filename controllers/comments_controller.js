@@ -28,6 +28,7 @@ module.exports.create = async function(req,res){
                     return;
                 }
 
+                //sending confirmation mail to user who have posted
                 commentsMailer.newComment(comment);
             });
             
@@ -41,7 +42,7 @@ module.exports.create = async function(req,res){
     
 }
 
-
+//authenticating the user and then deleting the comment
 module.exports.destroy = async function(req,res){
     try{
         let comment = await Comment.findById(req.params.id);

@@ -36,7 +36,7 @@ app.use(cookieParser());
 // adding the static files for styling and scripting the pages
 app.use(express.static('./assets'));
 
-//makes the upload path available to the browser
+//makes the file upload path available to the browser
 app.use('/upload',express.static(__dirname+'/upload'));
 
 
@@ -75,6 +75,7 @@ app.use(passport.session());
 //middleware to check each response whether in session
 app.use(passport.setAuthenticatedUser);
 
+//custom middleware to attach flash messages
 app.use(flash());
 app.use(customMware.setFlash);
 
