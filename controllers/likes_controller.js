@@ -45,7 +45,7 @@ module.exports.toggleLike = async function(req, res){
 
             //pushing it into the array of post or comment
             likeable.likes.push(newLike._id);
-            likable.save();
+            likeable.save();
         }
 
 

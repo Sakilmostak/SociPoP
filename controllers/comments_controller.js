@@ -1,5 +1,7 @@
 const Comment= require('../models/comment');
 const Post = require('../models/post');
+const Like = require('../models/like');
+const User = require('../models/users');
 const commentsMailer = require('../mailers/comments_mailer');
 const commentEmailWorker = require('../workers/comment_email_worker');
 const queue = require('../config/kue');
@@ -43,8 +45,27 @@ module.exports.create = async function(req,res){
 
                     console.log('job enqueued',job.id);
                 })
+
+                
             });
+
+            let user = await User.findById(comment.user);
+
+            if (req.xhr){
+                
+                //console.log(comment);
+                return res.status(200).json({
+                    data: {
+                        comment: comment,
+                        username: user.name
+                    },
+                    message: "Post created!"
+                });
+            }
+
             
+            
+            req.flash('success', 'Comment published!');
 
             return res.redirect('/');
         }
@@ -66,6 +87,23 @@ module.exports.destroy = async function(req,res){
             comment.remove();
 
             await Post.findByIdAndUpdate(postId, { $pull: {comments: req.params.id}});
+
+            // destroy the associated likes for this comment
+            await Like.deleteMany({likeable: comment._id, onModel: 'Comment'});
+
+
+            // send the comment id which was deleted back to the views
+            if (req.xhr){
+                return res.status(200).json({
+                    data: {
+                        comment_id: req.params.id
+                    },
+                    message: "Post deleted"
+                });
+            }
+
+
+            req.flash('success', 'Comment deleted!');
 
             return res.redirect('back');
         }
