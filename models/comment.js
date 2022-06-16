@@ -17,7 +17,12 @@ const commentSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             // referring to the collection from which the id would be taken
             ref: 'Post'
-        }
+        },
+        // include array of ids of all the users who liked the given comment
+        likes: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Like'
+        }]
     },
     {
         timestamps: true

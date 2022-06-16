@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 
 //setting up the database
-mongoose.connect('mongodb://localhost/socipop_development');
+mongoose.connect('mongodb://localhost/socipop_development',{
+    serverSelectionTimeoutMS: 100000
+});
 
 const db= mongoose.connection;
 

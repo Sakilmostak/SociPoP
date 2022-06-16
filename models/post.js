@@ -17,6 +17,11 @@ const postSchema = new mongoose.Schema(
             //[type] means its array of given type
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Comment'
+        }],
+        // include array of ids of all the users who liked the given post
+        likes: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Like'
         }]
     },
     {
