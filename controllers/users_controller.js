@@ -2,16 +2,33 @@
 const User = require("../models/users");
 const fs = require('fs');
 const path = require('path');
+const Friend = require('../models/friend');
 
 //adding action when directed to profile controller
 // profile is present in views
 module.exports.profile = async function(req,res){
     try{
-        let user = await User.findById(req.params.id);
+
+        //to check if the given users are friends
+        let isFriend=false;
+        let user = await User.findById(req.query.profile_id);
+
+        let friend = await Friend.findOne(
+            {
+                from_user: req.query.user_id,
+                to_user: req.query.profile_id
+            }
+        );
+
+        if(friend){
+            isFriend=true;
+        }
+
 
         return res.render('user_profile',{
             title: "profile",
-            profile_user: user
+            profile_user: user,
+            isFriend: isFriend
         });
     }
     catch(err){

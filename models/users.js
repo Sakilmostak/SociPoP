@@ -21,7 +21,11 @@ const userSchema = new mongoose.Schema(
         },
         avatar: {
             type: String
-        }
+        },
+        friends: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Friend'
+        }]
     },
     {
         // add timestamps for each update in data
