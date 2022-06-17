@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+const env = require('./environment');
 
 //setting up the database
-mongoose.connect('mongodb://localhost/socipop_development',{
+mongoose.connect(`mongodb://localhost/${env.db}`,{
     serverSelectionTimeoutMS: 100000
 });
 

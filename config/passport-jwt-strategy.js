@@ -3,11 +3,12 @@ const JWTStrategy = require('passport-jwt').Strategy;
 const ExtractJWT = require('passport-jwt').ExtractJwt;
 
 const User = require('../models/users');
+const env = require('./environment');
 
 //configuring to access the data from header file along with the encryption key
 let opts = {
     jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
-    secretOrKey : 'hakunamatata'
+    secretOrKey : env.jwt_secret
 }
 
 //authenticating the user and then sending the user data 

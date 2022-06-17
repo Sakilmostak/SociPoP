@@ -1,9 +1,11 @@
 // adding all the libraries
 const express = require('express');
+const env = require('./config/environment');
 const app = express();
 const port= 2500;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
+const path = require('path');
 
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
@@ -27,8 +29,8 @@ console.log('Chat server is listening on port: 5000');
 
 // sass middleware for css
 app.use(sassMiddleware({
-    src: './assets/scss',
-    dest: './assets/css',
+    src: path.join(__dirname, env.asset_path, 'scss'),
+    dest: path.join(__dirname, env.asset_path, 'css'),
     debug: true,
     outputStyle: 'extended',
     prefix: '/css'
@@ -40,7 +42,7 @@ app.use(express.urlencoded());
 app.use(cookieParser());
 
 // adding the static files for styling and scripting the pages
-app.use(express.static('./assets'));
+app.use(express.static(path.join(__dirname, env.asset_path)));
 
 //makes the file upload path available to the browser
 app.use('/upload',express.static(__dirname+'/upload'));
@@ -62,7 +64,7 @@ app.use(session(
     {
         name: 'SociPoP',
         // TODO change the secret before deployment in production mode
-        secret: 'something something',
+        secret: env.session_cookie_key,
         saveUninitialized: false,
         resave: false,
         cookie: {
