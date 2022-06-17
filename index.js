@@ -1,6 +1,7 @@
 // adding all the libraries
 const express = require('express');
 const env = require('./config/environment');
+const logger = require('morgan');
 const app = express();
 const port= 2500;
 const expressLayouts = require('express-ejs-layouts');
@@ -25,16 +26,18 @@ const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen(5000);
 console.log('Chat server is listening on port: 5000');
 
+//show logs if only in development environment
+if(env.name == 'development'){
+    // sass middleware for css
+    app.use(sassMiddleware({
+        src: path.join(__dirname, env.asset_path, 'scss'),
+        dest: path.join(__dirname, env.asset_path, 'css'),
+        debug: true,
+        outputStyle: 'extended',
+        prefix: '/css'
+    }));
+}
 
-
-// sass middleware for css
-app.use(sassMiddleware({
-    src: path.join(__dirname, env.asset_path, 'scss'),
-    dest: path.join(__dirname, env.asset_path, 'css'),
-    debug: true,
-    outputStyle: 'extended',
-    prefix: '/css'
-}));
 
 // middleware for decoding the recieved data
 app.use(express.urlencoded());
@@ -47,6 +50,7 @@ app.use(express.static(path.join(__dirname, env.asset_path)));
 //makes the file upload path available to the browser
 app.use('/upload',express.static(__dirname+'/upload'));
 
+app.use(logger(env.morgan.mode, env.morgan.options));
 
 // adding layouts in ejs
 app.use(expressLayouts);
