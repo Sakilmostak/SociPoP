@@ -1,1 +1,20 @@
-header{background-image:linear-gradient(#ff85f1,#8476ff);display:flex;justify-content:space-between}header h1{color:#fff;margin:2% 4%}header ul{display:flex;margin:2% 4%}header ul li{list-style:none;width:100px;text-align:center}header ul li a{text-decoration:none;color:#fff}header ul li a:hover{color:#000;text-shadow:3px 3px 5px #fff}
+header {
+  background-image: linear-gradient(#ff85f1, #8476ff);
+  display: flex;
+  justify-content: space-between; }
+  header h1 {
+    color: white;
+    margin: 2% 4%; }
+  header ul {
+    display: flex;
+    margin: 2% 4%; }
+    header ul li {
+      list-style: none;
+      width: 100px;
+      text-align: center; }
+      header ul li a {
+        text-decoration: none;
+        color: white; }
+        header ul li a:hover {
+          color: black;
+          text-shadow: 3px 3px 5px white; }
