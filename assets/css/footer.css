@@ -1,9 +1,1 @@
-footer {
-  background-image: linear-gradient(90deg, #ffdb8f, #cfcfcf);
-  margin: 0 0;
-  display: flex; }
-  footer ul li {
-    list-style: none; }
-    footer ul li a {
-      text-decoration: none;
-      color: black; }
+footer{background-image:linear-gradient(90deg,#ffdb8f,#cfcfcf);margin:0;display:flex}footer ul li{list-style:none}footer ul li a{text-decoration:none;color:#000}
