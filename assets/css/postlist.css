@@ -1,0 +1,40 @@
+#posts-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  #posts-list-container #post-list {
+    width: 90%;
+    padding: 0;
+    list-style-type: none; }
+    #posts-list-container #post-list > li > p {
+      min-height: 70px;
+      display: flex;
+      flex-wrap: wrap;
+      background-color: white;
+      box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; }
+      #posts-list-container #post-list > li > p .post-name {
+        min-height: 20px;
+        display: block;
+        width: 100%;
+        padding-top: 5px;
+        padding-left: 10px; }
+      #posts-list-container #post-list > li > p .content-container {
+        display: inline-block;
+        color: black;
+        padding-left: 5%;
+        width: 80%; }
+      #posts-list-container #post-list > li > p .delete-container {
+        color: #567dfc;
+        width: 15%;
+        text-align: center;
+        align-self: flex-end; }
+        #posts-list-container #post-list > li > p .delete-container a {
+          text-decoration: none; }
+      #posts-list-container #post-list > li > p .like-container {
+        padding-top: 5px;
+        padding-left: 10px;
+        min-height: 20px;
+        width: 30%; }
+        #posts-list-container #post-list > li > p .like-container a {
+          text-decoration: none;
+          color: #567dfc; }

@@ -5,9 +5,8 @@ const path = require('path');
 
 module.exports = (app)=>{
     app.locals.assetPath = function(filePath){
-        console.log('meow')
+        
         if(env.name == 'development'){
-            console.log('bhow');
             return filePath;
         }
 

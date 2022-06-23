@@ -1,14 +1,100 @@
 #home-container {
     display: flex;
+    justify-content: center;
+
+    .section-head {
+        color: rgb(97, 97, 97);
+    }
+
     #feed-posts {
-        width: 70%;
+        width: 50%;
+        min-width: 500px;
         padding: 10px;
+        background-color: rgb(234, 234, 234);
+        
+        h2{
+            width:100%;
+        }
+        #new-post-form{
+            height: 170px;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            textarea{
+                border:none;
+                padding: 10px;
+                background-color: white;
+                resize: none;
+                outline: none;
+                box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+                width: 90%;
+                min-width: 400px;
+                height: 100px;
+
+            }
+
+            input[type=submit]:first-of-type {
+                margin-right: 5%;
+                align-self: flex-end;
+                width: 100px;
+                height: 36px;
+                border-radius: 3px;
+                border: solid 1px transparent;
+                color: rgb(114, 114, 114);
+                font-size: 18px;
+                font-weight: 300;
+                background-color: rgb(196, 241, 254);
+                box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+            }
+
+            input[type=submit]:first-of-type:active {
+                background-color: rgb(186, 184, 184);
+            }
+        }
+
+        
     }
 
     #user-friends {
-        width: 30%;
+        width: 20%;
         padding: 10px;
-        border-left: 1px solid lightgrey;
+        min-width: 250px;
+        
         min-height: 100%;
+
+        div{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            margin: 5px 0;
+            p {
+                display:flex;
+                align-items: center;
+                background-color: white;
+                border-radius: 50%;
+                border: 1px solid lightgrey;
+                width: 50px;
+                height: 50px;
+                overflow: hidden;
+                img {
+                    width: 50px;
+                    height: auto;
+                }
+            }
+
+            a{
+                min-width: 10vw;
+                padding-left: 5px;
+                text-decoration: none;
+                color:rgb(62, 62, 62)
+            }
+        }
+    }
+
+    #chat-room {
+        width: 30%;
+        min-width:350px;
+        border-left: 1px solid lightgrey;
     }
 }

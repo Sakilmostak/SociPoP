@@ -1,0 +1,90 @@
+.post-comments{
+    display: flex;
+    flex-direction: column;
+    form{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 70%;
+
+        input[type=text]{
+            border:none;
+            padding: 10px;
+            background-color: white;
+            resize: none;
+            outline: none;
+            width: 50%;
+            height: 30px;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        }
+        input[type=submit]{
+            margin-right: 5%;
+            width: 100px;
+            height: 30px;
+            border-radius: 3px;
+            border: solid 1px transparent;
+            color: rgb(114, 114, 114);
+            font-size: 9px;
+            font-weight: 300;
+            background-color: rgb(196, 241, 254);
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        }
+    }
+    & > div{
+        & > ul{
+            padding: 0;
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-left: 5px solid rgba(183, 180, 180, 0.621);
+
+            
+            li{
+                width: 70%;
+                p{
+                    background-color: white;
+                    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    
+                    .comment-name{
+                        min-height: 20px;
+                        display: block;
+                        width: 100%;
+                        padding-top: 5px;
+                        padding-left: 10px;
+                    }
+                    .comment-content-container{
+                        display: inline-block;
+                        color: black;
+                        padding-left: 5%;
+                        width: 80%;
+                    }
+                    .comment-delete-container{
+                        color: rgb(86, 125, 252);
+                        width: 15%;
+                        text-align: center;
+                        align-self: flex-end;
+                        a {
+                            text-decoration: none;
+
+                        }
+                    }
+                    .comment-like-container{
+                        padding-top: 5px;
+                        padding-left: 10px;
+                        min-height: 20px;
+                        width:30%;
+                        a{
+                            
+                            text-decoration: none;
+                            color:rgb(86, 125, 252);
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}

@@ -4,9 +4,10 @@
     <ul>
         <% if (locals.user){ %>
             <li>
-                <a href="/users/profile/<%= locals.user._id %>">
-                    <%= user.name %></li>
-                </a>   
+                <a id="userprofile" href="/users/profile/?user_id=<%=locals.user._id%>&profile_id=<%=locals.user._id%>"">
+                    <%= user.name %>
+                </a>  
+            </li>
             <li>
                 <a href="/users/sign-out">Sign Out</a>
             </li>
