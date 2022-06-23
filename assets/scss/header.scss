@@ -1,9 +1,11 @@
 header {
     background-image: linear-gradient(rgb(255, 133, 241), rgb(132, 118, 255));
+    height: 100px;
     display:flex;
     justify-content: space-between;
     position: sticky;
     top: 0px;
+    z-index: 1;
 
     h1 {
         color: white;

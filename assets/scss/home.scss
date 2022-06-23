@@ -8,7 +8,7 @@
 
     #feed-posts {
         width: 50%;
-        min-width: 500px;
+        min-width: 350px;
         padding: 10px;
         background-color: rgb(234, 234, 234);
         
@@ -96,5 +96,17 @@
         width: 30%;
         min-width:350px;
         border-left: 1px solid lightgrey;
+    }
+}
+
+@media only screen and (max-width: 1180px) {
+    #user-friends {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 890px) {
+    #chat-room {
+        display: none;
     }
 }

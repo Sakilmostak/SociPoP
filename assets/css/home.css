@@ -5,7 +5,7 @@
     color: #616161; }
   #home-container #feed-posts {
     width: 50%;
-    min-width: 500px;
+    min-width: 350px;
     padding: 10px;
     background-color: #eaeaea; }
     #home-container #feed-posts h2 {
@@ -71,3 +71,11 @@
     width: 30%;
     min-width: 350px;
     border-left: 1px solid lightgrey; }
+
+@media only screen and (max-width: 1180px) {
+  #user-friends {
+    display: none; } }
+
+@media only screen and (max-width: 890px) {
+  #chat-room {
+    display: none; } }
