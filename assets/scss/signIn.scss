@@ -1,0 +1,51 @@
+div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        border: 1px solid rgb(142, 140, 140);
+        min-width: 600px;   
+        min-height: 200px;
+        input[type=email]{
+            resize: none;
+            outline: none;
+            border: 1px solid rgb(182, 179, 179);
+            padding: 3px;
+        }
+        input[type=password]{
+            resize: none;
+            outline: none;
+            border: 1px solid rgb(182, 179, 179);
+            padding: 3px;
+        }
+        input[type=submit]{
+            width: 100px;
+            height: 36px;
+            border-radius: 3px;
+            border: solid 1px transparent;
+            color: rgb(114, 114, 114);
+            font-size: 18px;
+            font-weight: 300;
+            background-color: rgb(196, 241, 254);
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        }
+    }
+    a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        margin: 40px;
+        text-decoration: none;
+        color: rgb(222, 64, 64);
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        border: 1px solid grey;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    }
+}

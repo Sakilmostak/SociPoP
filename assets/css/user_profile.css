@@ -1,2 +1,78 @@
-body {
-  background-color: #ffffcc; }
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  div div {
+    margin-top: 3vh;
+    background-color: #c8c9c9;
+    overflow: hidden;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 1px solid #b6b4b4;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    div div img {
+      width: 150px; }
+  div #edit-profile-form {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 1px solid #8e8c8c;
+    min-width: 600px;
+    min-height: 350px; }
+    div #edit-profile-form input[type=text] {
+      resize: none;
+      outline: none;
+      width: 50%;
+      border: 1px solid #b6b3b3;
+      padding: 3px; }
+    div #edit-profile-form input[type=email] {
+      resize: none;
+      outline: none;
+      width: 50%;
+      border: 1px solid #b6b3b3;
+      padding: 3px; }
+    div #edit-profile-form input[type=file] {
+      resize: none;
+      outline: none;
+      width: 50%;
+      border: 1px solid #b6b3b3;
+      padding: 3px; }
+    div #edit-profile-form input[type=submit] {
+      width: 100px;
+      height: 36px;
+      border-radius: 3px;
+      border: solid 1px transparent;
+      color: #727272;
+      font-size: 18px;
+      font-weight: 300;
+      background-color: #c4f1fe;
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; }
+  div p {
+    width: 30%;
+    padding: 5px;
+    max-width: 600px;
+    font-size: 1.5rem;
+    color: #616161;
+    border: 1px solid grey;
+    display: flex;
+    justify-content: space-evenly; }
+    div p span {
+      display: inline-block;
+      width: 40%; }
+  div .friend-btn {
+    margin-top: 5vh; }
+    div .friend-btn button {
+      width: 140px;
+      height: 50px;
+      border-radius: 3px;
+      border: solid 1px transparent;
+      color: #727272;
+      font-size: 18px;
+      font-weight: 300;
+      background-color: #c4f1fe;
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; }

@@ -2,29 +2,37 @@
 
 
 
+<div>
+    <% if(user.id == profile_user.id){ %> 
+        <!-- if the user matches then show the form -->
+        <div>
+            <img src="<%= profile_user.avatar %>" alt="<%= profile_user.name %>" width="100">
+        </div>
+        
+        <form action="/users/update/<%= profile_user.id %>" id="edit-profile-form" enctype="multipart/form-data" method="POST" >
+            <h2>Edit Profile</h2>
+            <input type="text" name="name" id="" placeholder="New name" required>
+            <input type="email" name="email" id="" placeholder="New Email" required>
+            <label for="profile-pic">Profile Pic</label>
+            <input type="file" name="avatar" id="profile-pic" placeholder="Profile Picture">
+            <input type="submit" value="Update">
+        </form>
+    <% } else { %>
+        <!-- else show only the profile info -->
+        <div>
+            <img src="<%= profile_user.avatar %>" alt="<%= profile_user.name %>" width="100">
+        </div>
+        <p><span>User:</span> <span><%= profile_user.name %></span></p>
+        <p><span>Email:</span> <span><%= profile_user.email %></span></p>
+        <% if(isFriend){ %>
+            <form action="/friends/remove-friend/?from_id=<%=user._id %>&to_id=<%=profile_user._id %>" class="friend-btn" method="POST">
+                <button type="submit" >Remove Friend</button>
+            </form>
+        <% }else{ %>
+            <form action="/friends/create-friend/?from_id=<%=user._id %>&to_id=<%=profile_user._id %>" class="friend-btn" method="POST">
+                <button type="submit">Add Friend</button>
+            </form>
+        <% } %> 
 
-<% if(user.id == profile_user.id){ %> 
-    <!-- if the user matches then show the form -->
-    <img src="<%= profile_user.avatar %>" alt="<%= profile_user.name %>" width="100">
-    <form action="/users/update/<%= profile_user.id %>" enctype="multipart/form-data" method="POST" >
-        <input type="text" name="name" id="" placeholder="Your Name" value="<%=profile_user.name%>" required>
-        <input type="email" name="email" id="" placeholder="Your Email" value="<%=profile_user.email%>" required>
-        <input type="file" name="avatar" id="" placeholder="Profile Picture">
-        <input type="submit" value="Update">
-    </form>
-<% } else { %>
-    <!-- else show only the profile info -->
-    <img src="<%= profile_user.avatar %>" alt="<%= profile_user.name %>" width="100">
-    <p><%= profile_user.name %></p>
-    <p><%= profile_user.email %></p>
-    <% if(isFriend){ %>
-        <form action="/friends/remove-friend/?from_id=<%=user._id %>&to_id=<%=profile_user._id %>" method="POST">
-            <button type="submit" >Remove Friend</button>
-        </form>
-    <% }else{ %>
-        <form action="/friends/create-friend/?from_id=<%=user._id %>&to_id=<%=profile_user._id %>" method="POST">
-            <button type="submit">Add Friend</button>
-        </form>
     <% } %> 
-
-<% } %> 
+</div>
