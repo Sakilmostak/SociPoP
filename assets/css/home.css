@@ -50,7 +50,8 @@
       display: flex;
       align-items: center;
       justify-content: space-evenly;
-      margin: 5px 0; }
+      margin: 5px 0;
+      border: 1px solid #b5b3b3; }
       #home-container #user-friends div p {
         display: flex;
         align-items: center;
