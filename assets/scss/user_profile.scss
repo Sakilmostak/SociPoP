@@ -62,7 +62,7 @@ div{
     }
 
     p{
-        width: 30%;
+        min-width: 40%;
         padding: 5px;
         max-width: 600px;
         font-size: 1.5rem;
@@ -72,7 +72,7 @@ div{
         justify-content: space-evenly;
         span{
             display: inline-block;
-            width: 40%;
+            min-width: 40%;
         }
 
     }
