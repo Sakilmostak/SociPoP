@@ -5,7 +5,7 @@ class ChatEngine{
 
         //io is provided by socket.io
         // emits the connect event
-        this.socket = io.connect('http://localhost:5000');
+        this.socket = io.connect('http://54.172.116.247:5000');
 
         if(this.userEmail){
             this.connectionHandler();
