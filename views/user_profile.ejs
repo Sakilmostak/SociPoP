@@ -6,13 +6,15 @@
     <% if(user.id == profile_user.id){ %> 
         <!-- if the user matches then show the form -->
         <div>
-            <img src="<%= profile_user.avatar %>" width="100">
+            <img src="<%= profile_user.avatar %>" alt="<%= profile_user.image %>" width="100">
         </div>
         
         <form action="/users/update/<%= profile_user.id %>" id="edit-profile-form" enctype="multipart/form-data" method="POST" >
             <h2>Edit Profile</h2>
-            <input type="text" name="name" id="" placeholder="New name" >
-            <input type="email" name="email" id="" placeholder="New Email" >
+            <label for="profile-name">New Name</label>
+            <input type="text" name="name" id="profile-name" placeholder="New name" value="<%= profile_user.name %>" required>
+            <label for="profile-email">New Email</label>
+            <input type="email" name="email" id="profile-email" placeholder="New Email" value="<%= profile_user.email %>" required>
             <label for="profile-pic">Profile Pic</label>
             <input type="file" name="avatar" id="profile-pic" placeholder="Profile Picture">
             <input type="submit" value="Update">
