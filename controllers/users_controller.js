@@ -11,7 +11,7 @@ module.exports.profile = async function(req,res){
 
         //to check if the given users are friends
         let isFriend=false;
-        let user = await User.findById(req.query.profile_id);
+        let user = await User.findById(req.query.profile_id,'-password');
 
         let friend = await Friend.findOne(
             {

@@ -23,7 +23,7 @@ div {
     justify-content: space-evenly;
     border: 1px solid #8e8c8c;
     min-width: 600px;
-    min-height: 350px; }
+    min-height: 400px; }
     div #edit-profile-form input[type=text] {
       resize: none;
       outline: none;

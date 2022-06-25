@@ -25,11 +25,12 @@ module.exports.home= async function(req, res){
         // sort() is used to sort the data with custom sortinng parameter
         let posts = await Post.find({})
         .sort('-createdAt')
-        .populate('user')
+        .populate('user','-password')
         .populate({
             path: 'comments',
             populate: {
-                path: 'user'
+                path: 'user',
+                select: '-password'
             }
         }).populate({
             path: 'comments',
@@ -38,7 +39,7 @@ module.exports.home= async function(req, res){
             }
         }).populate('likes');
 
-        let users = await User.find({});
+        let users = await User.find({},'-password');
         //console.log(posts);
 
         return res.render('home',  {
