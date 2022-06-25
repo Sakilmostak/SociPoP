@@ -41,7 +41,7 @@ if(env.name == 'development'){
 
 
 // middleware for decoding the recieved data
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended: false}));
 // middleware for decoding the cookie
 app.use(cookieParser());
 
