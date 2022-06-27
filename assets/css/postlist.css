@@ -7,7 +7,7 @@
     padding: 0;
     list-style-type: none; }
     #posts-list-container #post-list > li > p {
-      min-height: 70px;
+      min-height: 100px;
       display: flex;
       flex-wrap: wrap;
       background-color: white;

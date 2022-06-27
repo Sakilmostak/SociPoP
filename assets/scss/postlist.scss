@@ -11,7 +11,7 @@
         & > li{
             
            & > p {
-                min-height: 70px;
+                min-height: 100px;
                 display: flex;
                 flex-wrap: wrap;
                 background-color: white;
@@ -37,7 +37,6 @@
                     align-self: flex-end;
                     a {
                         text-decoration: none;
-
                     }
                 }
                 .like-container{
