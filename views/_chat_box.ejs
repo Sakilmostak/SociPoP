@@ -3,11 +3,11 @@
 	<div id="user-chat-box">
 		<ul id="chat-messages-list">
 			<li class="other-message">
-				<span>Boom Kapaow!</span>
+				<span>Beat boxing is cool</span>
 			</li>
 			<li class="self-message">
 				<span>
-					Ra-ta-ta-ta-ta!!!!!
+					Yeah, right!
 				</span>
 				
 			</li>
@@ -20,3 +20,28 @@
 
 	</div>
 <% } %>
+
+<script>
+	let messages=document.getElementById('chat-messages-list');
+	var id;
+
+
+	function scroll(){
+		if(messages.scrollTop !== messages.scrollHeight){
+			messages.scrollTop = messages.scrollHeight;
+		}
+	}
+
+	function setScroll(){
+		id= setInterval(scroll, 100);
+	}
+
+	function rmScroll(){
+		clearInterval(id);
+	}
+
+	setScroll();
+
+	messages.addEventListener("mouseover", rmScroll);
+	messages.addEventListener("mouseleave", setScroll);
+</script>

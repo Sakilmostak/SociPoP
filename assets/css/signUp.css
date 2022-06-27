@@ -2,6 +2,8 @@ div {
   display: flex;
   flex-direction: column;
   align-items: center; }
+  div h1 {
+    color: #616161; }
   div form {
     display: flex;
     flex-direction: column;

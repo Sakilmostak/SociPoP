@@ -3,19 +3,23 @@
 		border: 1px dashed grey;
 		border-top: none;
 		height: 90vh;
+		max-height: 650px;
 		background: white;
 		padding: 5px;
 		box-shadow: 1px 1px 1px 1px lightgrey;
 		position: sticky;
 		top: 100px;
 		z-index: 0;
-	
+
 		#chat-messages-list{
 			list-style: none;
 			padding: 10px;
 			height: 70%;
 			background-color: white;
 			overflow: auto;
+			&::-webkit-scrollbar { //to hide the scrollbar
+				display: none;
+			}
 	
 			.other-message{
 				text-align: left;

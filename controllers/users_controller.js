@@ -104,8 +104,15 @@ module.exports.signIn= function(req,res){
 //get the signup data
 module.exports.create= async function(req,res){
     try{
+
+        if(req.body.password.length<=6){
+
+            req.flash('error','Weak password! Must be greater than 6 letters');
+            return res.redirect('back');
+        }
         if(req.body.password!= req.body.confirm_password){
             // return to the same page
+            req.flash('error','Confirm Password doesnt match');
             return res.redirect('back');
         }
     
