@@ -31,7 +31,7 @@ const development = {
     },
     google_client_id: "867921063545-10ll53ms9gatv5jmdjd9rvuvekv02nno.apps.googleusercontent.com",
     google_client_secret: "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",
-    google_call_back_url: "http://localhost:2500/users/auth/google/callback",
+    google_call_back_url: "http://socipop.com/users/auth/google/callback",
     jwt_secret: 'hakunamatata',
     morgan: {
         mode: 'dev',
