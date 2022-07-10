@@ -1,7 +1,8 @@
 class ChatEngine{
-    constructor(chatBoxId, userEmail){
+    constructor(chatBoxId, userEmail, name){
         this.chatBox = $(`#${chatBoxId}`);
         this.userEmail = userEmail;
+        this.name= name;
 
         //io is provided by socket.io
         // emits the connect event
@@ -36,6 +37,7 @@ class ChatEngine{
                 self.socket.emit('send_message',{
                     message: msg,
                     user_email: self.userEmail,
+                    user_name: self.name,
                     chatroom: 'socipop'
                 });
             }
@@ -52,9 +54,9 @@ class ChatEngine{
                 messageType = 'self-message';
             }
 
-            newMessage.append($('<span>',{
-                'html': data.message
-            }));
+            newMessage.append($(`<small>${data.user_name}</small>
+                                 <span> ${data.message}</span>
+                                   `));
 
             // newMessage.append($('<sub>',{
             //     'html': data.user_email

@@ -31,6 +31,7 @@
                         timeout: 1500
                         
                     }).show();
+                    $('#post-text-area').val(''); // to remove text from textarea after it is posted
 
                 },
                 error: function(error){

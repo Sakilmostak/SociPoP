@@ -29,9 +29,9 @@ const development = {
             pass: 'mczosehsunrpmpmw'
         }
     },
-    google_client_id: "867921063545-10ll53ms9gatv5jmdjd9rvuvekv02nno.apps.googleusercontent.com",
-    google_client_secret: "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",
-    google_call_back_url: "http://socipop.com/users/auth/google/callback",
+    google_client_id: "867921063545-afo92e70t1ks55bp0a5n5mmf54jfckbq.apps.googleusercontent.com",
+    google_client_secret: "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",
+    google_call_back_url: "http://www.socipop.com/users/auth/google/callback",
     jwt_secret: 'hakunamatata',
     morgan: {
         mode: 'dev',

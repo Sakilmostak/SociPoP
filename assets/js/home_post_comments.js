@@ -45,6 +45,7 @@ class PostComments{
                         timeout: 1500
                         
                     }).show();
+                    $('.comment-text-area').val(''); // to remove text from textarea after it is posted
 
                 }, error: function(error){
                     console.log(error.responseText);
