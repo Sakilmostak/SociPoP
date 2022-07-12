@@ -43,23 +43,32 @@
 
     //method to create a post in DOM
     let newPostDom = function(post, username){
+
         // return $(`<li id="post-${post._id}">
         //             <p>
-        //                 <small>
-        //                     <a class="delete-post-button" href="/posts/destroy/${post._id}">x</a>
-        //                 </small>
-        //                 ${post.content}
-        //                 <br>
-        //                 <small>
+        //                 <small class="post-name">
         //                     ${username}
         //                 </small>
+        //                 <span class="content-container">${post.content}</span> 
+        //                 <small class="delete-container">
+        //                     <a class="delete-post-button" href="/posts/destroy/${post._id}"><i class="fa-regular fa-trash-can"></i></a>
+        //                 </small>
+                        
+                
+        //                 <!-- display the likes of this post, if the user is logged in, then show the link to toggle likes, else, just show the count -->
+        //                 <span class="like-container">
+        //                         <a class="toggle-like-button" data-likes="${post.likes.length}" href="/likes/toggle/?id=${post._id}&type=Post">
+        //                             ${post.likes.length} <i class="fa-regular fa-thumbs-up"></i>
+        //                         </a>
+        //                 </span>
+
         //             </p>
-        //             <div class="post-comments">
-        //                 <form action="/comments/create" method="POST">
-        //                     <input type="text" name="content" placeholder="Type Here to add comment..." required>
-        //                     <input type="hidden" name="post" value="${post._id}" >
-        //                     <input type="submit" value="Add Comment">
-        //                 </form>
+        //             <div id="post-comments">
+        //                     <form id="post-${post._id}-comments-form" action="/comments/create" method="POST">
+        //                         <input type="text" name="content" placeholder="Type Here to add comment..." required>
+        //                         <input type="hidden" name="post" value="${post._id}" >
+        //                         <input type="submit" value="Add Comment">
+        //                     </form>
                 
         //                 <div class="post-comments-list">
         //                     <ul id="post-comments-${post._id}">
@@ -74,7 +83,8 @@
                         <small class="post-name">
                             ${username}
                         </small>
-                        <span class="content-container">${post.content}</span> 
+                        <span class="content-container">${post.content}</span>
+                        
                         <small class="delete-container">
                             <a class="delete-post-button" href="/posts/destroy/${post._id}"><i class="fa-regular fa-trash-can"></i></a>
                         </small>
@@ -82,26 +92,26 @@
                 
                         <!-- display the likes of this post, if the user is logged in, then show the link to toggle likes, else, just show the count -->
                         <span class="like-container">
-                                <a class="toggle-like-button" data-likes="${post.likes.length}" href="/likes/toggle/?id=${post._id}&type=Post">
-                                    ${post.likes.length} <i class="fa-regular fa-thumbs-up"></i>
-                                </a>
+                            <a class="toggle-like-button" data-likes="${post.likes.length}" href="/likes/toggle/?id=${post._id}&type=Post">
+                                ${post.likes.length} <i class="fa-regular fa-thumbs-up"></i>
+                            </a>
                         </span>
-
+                
                     </p>
-                    <div id="post-comments">
+                    <div class="post-comments">
                             <form id="post-${post._id}-comments-form" action="/comments/create" method="POST">
-                                <input type="text" name="content" placeholder="Type Here to add comment..." required>
+                                <input type="text" name="content" class="comment-text-area" placeholder="Type Here to add comment..." required>
                                 <input type="hidden" name="post" value="${post._id}" >
                                 <input type="submit" value="Add Comment">
                             </form>
                 
-                        <div class="post-comments-list">
+                
+                        <div id="post-comments-list-${post._id}">
                             <ul id="post-comments-${post._id}">
                             </ul>
                         </div>
                     </div>
-                </li>
-        `)
+                </li>`);
     }
 
 
